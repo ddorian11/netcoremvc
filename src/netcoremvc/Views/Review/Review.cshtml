@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Review";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+@model netcoremvc.Models.UserReview
+
+@using (Html.BeginForm("Review", "Review", FormMethod.Post))
+{
+    <form>
+        <div>
+            @Html.Label("Name: ")
+            @Html.TextBoxFor(n => n.Name, new { style = " display: block; line-height: 2em; background: #cccccc; " })
+            @Html.Label("Email: ")
+            @Html.TextBoxFor(m => m.Email, new { style = "display: block; line-height: 2em; background: #cccccc; " })
+            @Html.Label("Comment: ")
+            @Html.TextAreaFor(model => model.Headline, new { style = " display: block; height: 8em; width: 30em; background: #cccccc; " }
+)
+
+            @Html.Label("Rating: ")
+            @Html.RadioButton("rb1", "1", isChecked: true) @Html.Label("1")
+            @Html.RadioButton("rb2", "2", isChecked: false) @Html.Label("2")
+            @Html.RadioButton("rb3", "3", isChecked: false) @Html.Label("3")
+            @Html.RadioButton("rb4", "4", isChecked: false) @Html.Label("4")
+            @Html.RadioButton("rb5", "5", isChecked: false) @Html.Label("5")
+
+            <input type="submit" id="submitId" value="Submit" />
+
+        </div>
+    </form>
+}
+
